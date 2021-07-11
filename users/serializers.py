@@ -62,10 +62,3 @@ class CustomAuthTokenSerializer(serializers.Serializer):
         attrs['user'] = user
         return attrs
     
-
-
-class UserDetailSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = User
-        fields = ('id','username', 'email','first_name','last_name')

@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from .models import Post, Category
-from users.serializers import UserDetailSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
     
@@ -12,11 +11,9 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     
-    category = CategorySerializer()
-    user = UserDetailSerializer()
     
     class Meta:
         model = Post
-        fields = ('title', 'content', 'user', 'category', 'slug', 'public')
+        fields = ('title', 'content', 'user', 'category', 'slug', 'public', 'photo')
         lookup_field = 'slug'
   
