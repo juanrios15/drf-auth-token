@@ -4,8 +4,8 @@
 ![](https://img.shields.io/badge/djangoREST-3.12-informational?style=flat&logo=django&logoColor=white&color=A30000)
 
 
-Django USERS Token authentication using TokenAuthentication from Django Rest Framework.
-Blog API
+Blog API. Django USERS Token authentication using TokenAuthentication from Django Rest Framework.
+
 
 How to install:
 - pip install -r requirements.txt
