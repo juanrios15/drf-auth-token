@@ -5,6 +5,7 @@
 
 
 Django USERS Token authentication using TokenAuthentication from Django Rest Framework.
+Blog API
 
 How to install:
 - pip install -r requirements.txt
