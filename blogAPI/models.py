@@ -25,8 +25,9 @@ class Post(models.Model):
     summary = models.CharField(max_length=250, null=True, blank=True)
     content = models.TextField()
     public = models.BooleanField(default=False)
-    photo = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None,blank=True)
+    photo = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None,blank=True, null=True)
     slug = models.SlugField(default="",editable=False,max_length=150, blank=True, null=True)
+    created_at = models.DateField(auto_now=False, auto_now_add=True)
     
     def save(self,*args, **kwargs):
                 
@@ -38,7 +39,7 @@ class Post(models.Model):
                 seconds=now.second
             )
             seconds = int(total_time.total_seconds())
-            slug_unique = '%s-%s-%s' % (self.title, str(seconds))
+            slug_unique = '%s-%s' % (self.title, str(seconds))
             self.slug = slugify(slug_unique)
             
         super(Post,self).save(*args, **kwargs)

@@ -23,6 +23,10 @@ class User(AbstractUser):
             self.slug = slugify(self.username)
 
         super(User,self).save(*args, **kwargs)
+    
+    
+    def __str__(self):
+        return self.username
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
