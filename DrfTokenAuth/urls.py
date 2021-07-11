@@ -7,6 +7,5 @@ from users.views import CustomObtainAuthToken
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-token-auth/', CustomObtainAuthToken.as_view()),
     path('users/', include('users.urls'))
 ]
