@@ -25,7 +25,7 @@ class Post(models.Model):
     summary = models.CharField(max_length=250, null=True, blank=True)
     content = models.TextField()
     public = models.BooleanField(default=False)
-    photo = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None,blank=True, null=True)
+    photo = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None, default='media/default.png')
     slug = models.SlugField(default="",editable=False,max_length=150, blank=True, null=True)
     created_at = models.DateField(auto_now=False, auto_now_add=True)
     

@@ -31,6 +31,8 @@ class PostViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAuthenticated]
         elif self.action == 'list':
             permission_classes = [AllowAny]
+        elif self.action == 'retrieve':
+            permission_classes = [AllowAny]
         else:
             permission_classes = [IsOwner]
         return [permission() for permission in permission_classes]
