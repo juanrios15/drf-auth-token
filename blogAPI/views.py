@@ -2,11 +2,12 @@ from django.shortcuts import render
 
 from rest_framework import permissions
 from rest_framework import viewsets
+from rest_framework.generics import ListAPIView
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 
 from .models import Post, Category
-from .serializers import PostSerializer, CategorySerializer
+from .serializers import PostSerializer, CategorySerializer, UserPostSerializer
 # Create your views here.
 
 
@@ -50,3 +51,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
+    
+
+class UserPostsView(ListAPIView):
+    serializer_class = UserPostSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        user = self.request.user
+        return Post.objects.filter(user=user)
+    
